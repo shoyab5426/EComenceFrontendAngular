@@ -81,4 +81,8 @@ This is a full-stack web application that allows users to log in, register, and 
 - *Python* (Flask or Django)
 - REST APIs
 
+### How to run anular on local server 
+ ✅ Run npm i or npm install
+ ✅ Run ng server or ng s
+
 ## 📂 Project Structure (Overview)
