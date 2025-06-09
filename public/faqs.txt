@@ -1,0 +1,18 @@
+faqs_content = """\
+How do I track my order?::You can track your order by logging into your account and going to the 'My Orders' section.
+What is your return policy?::You can return most items within 30 days of delivery for a full refund.
+How long does delivery take?::Standard delivery takes 3-5 business days. Express options are available at checkout.
+Do you offer cash on delivery?::Yes, we offer cash on delivery in selected areas.
+Can I cancel my order?::Yes, you can cancel your order before it is shipped. Go to 'My Orders' to cancel.
+How do I change my password?::Log into your account and go to Account Settings > Change Password.
+Do you ship internationally?::Yes, we ship to over 50 countries worldwide.
+What payment methods are accepted?::We accept credit/debit cards, net banking, UPI, wallets, and cash on delivery.
+Is my payment information secure?::Yes, we use industry-standard encryption to protect your data.
+Do you offer gift wrapping?::Yes, gift wrapping is available at checkout for an additional charge.
+How can I contact customer support?::You can contact us via the support page or by calling our toll-free number.
+I received a damaged item. What should I do?::Please contact our support team with photos, and we’ll assist with a replacement or refund.
+Can I change my shipping address after placing an order?::You can change the address before the order is shipped by contacting customer support.
+Do I need an account to place an order?::No, you can place an order as a guest, but having an account offers more features.
+How do I apply a discount code?::Enter the discount code at checkout in the promo code field.
+Are there any membership benefits?::Yes, members get early access to sales, exclusive offers, and reward points.
+Can ​:contentReference[oaicite:0]{index=0}​

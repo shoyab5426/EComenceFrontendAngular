@@ -1,0 +1,103 @@
+<div class="container-fluid p-3">
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-center bg-primary text-white p-3 rounded mb-3">
+    <h2 class="mb-0">Product Dashboard</h2>
+    <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#addProductModal">Add Product</button>
+  </div>
+
+  <!-- Search -->
+  <div class="mb-3">
+    <form [formGroup]="searchForm">
+      <div style="display: flex;">
+      <div style="display: flex;">
+         <select id="options" (change)="onSelectionChange()" name="options" formControlName="searchType">
+          <option value="Id">Id</option>
+          <option value="Name">Name</option>
+          <option value="Price">Price</option>
+        </select>
+      </div>
+      <div style="display: flex;">
+          <input formControlName = "searchValue" type="text" class="form-control" placeholder="Search products..." />
+      </div>
+      <div style="display: flex;">
+        <button (click)="search()" class="btn btn-primary">Search</button>
+      </div>
+    </div>
+    </form>
+  </div>
+
+  <div>
+    <button (click)="openChatBoat()">Boat</button>
+  </div>
+
+  <!-- Product Table -->
+
+  <div class="mat-elevation-z8">
+  <table mat-table [dataSource]="ProductDatasource">
+
+    <!-- Product Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Product Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+     <!-- Product name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Product Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.pname}} </td>
+    </ng-container>
+
+    <!-- Product price Column -->
+    <ng-container matColumnDef="price">
+      <th mat-header-cell *matHeaderCellDef> Product Price </th>
+      <td mat-cell *matCellDef="let element"> {{element.pprice}} </td>
+    </ng-container>
+
+    <!-- Product price Column -->
+    <ng-container matColumnDef="img">
+      <th mat-header-cell *matHeaderCellDef> Product Image </th>
+      <td mat-cell *matCellDef="let element">
+        <img width="100" height="100" [src]="'/images/' + (element.ppic.split('/').pop())" alt="">
+      </td>
+    </ng-container>
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element">
+        <button (clcik)="deleteItem(element.id)">Delete Item</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="productsTableColumnName"></tr>
+    <tr mat-row *matRowDef="let row; columns: productsTableColumnName;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                 showFirstLastButtons
+                 aria-label="Select page of periodic elements">
+  </mat-paginator>
+</div>
+
+<!-- Add Product Modal -->
+<div class="modal fade" id="addProductModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <form [formGroup]="addProductsForm">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title">Add Product</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <input name="productId" formControlName = "productId" required class="form-control mb-2" placeholder="Product Id" />
+          <input name="productName" formControlName = "productName"  required class="form-control mb-2" placeholder="Product Name" />
+          <input name="productPrice" formControlName = "productPrice" required type="number" class="form-control mb-2" placeholder="Product Price" />
+          <input name="productPic" formControlName = "productPic" required class="form-control mb-2" placeholder="Product Pic" />
+        </div>
+        <div class="modal-footer">
+          <button (click)="addProduct()" class="btn btn-primary">Save Product</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
